@@ -1,9 +1,10 @@
 from abc import ABC
-import pygame as pg
+
 import numpy as np
+import pygame as pg
 from numba import njit, prange
 
-FPS = 60
+FPS = 120
 G = 10 ** 4
 
 class GameObject(ABC):
@@ -88,7 +89,7 @@ class TransformableSpace(GameObject):
         self.last_mouse_pos = (0, 0)
         
         self.transformation_matrix = self.update_transformation_matrix()
-        self.simulation = Simulation([StationaryBody(300, 300, 100, 10)])
+        self.simulation = Simulation([StationaryBody(300, 300, 10000, 10)])
     
     def update_transformation_matrix(self):
         """Обновляет матрицу трансформации."""
