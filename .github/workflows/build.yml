@@ -3,10 +3,7 @@ name: Build Executable with PyInstaller
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - master
 
 jobs:
   build:
