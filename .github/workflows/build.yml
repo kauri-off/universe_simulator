@@ -35,10 +35,15 @@ jobs:
           $env:PATH += ";$env:APPDATA\Python\Scripts"
           poetry install --no-root
 
+      - name: Install PyInstaller
+        run: |
+          $env:PATH += ";$env:APPDATA\Python\Scripts"
+          poetry add pyinstaller
+
       - name: Build executable with PyInstaller
         run: |
           $env:PATH += ";$env:APPDATA\Python\Scripts"
-          poetry run pyinstaller --onefile --name=my_app main.py
+          poetry run pyinstaller --onefile --name=my_app src/main.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
